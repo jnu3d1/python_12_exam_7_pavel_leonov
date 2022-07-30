@@ -7,4 +7,7 @@
     {% for poll in polls %}
         <p>{{ poll.question }} <a href="{% url "index" %}">Пройти опрос</a></p>
     {% endfor %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
 {% endblock %}
