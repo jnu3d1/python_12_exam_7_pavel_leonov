@@ -7,6 +7,8 @@
     {% for choice in choises %}
         <p>
             {{ choice.text }}
+            <a href="{% url "edit_choice" choice.pk %}">Изменить</a>
+            <a href="{% url "delete_choice" choice.pk %}">Удалить</a>
         </p>
     {% empty %}
         <p>Вариантов ответов нет</p>

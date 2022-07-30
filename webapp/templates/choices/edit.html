@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Изменение варианта ответа "{{ choice.text }}"{% endblock %}
+
+{% block content %}
+    <h1>Изменить вариант ответа</h1>
+    <form action="" method="post">
+        {% include "partial/form.html"  with button_text="Редактировать" %}
+    </form><br/>
+{% endblock %}
