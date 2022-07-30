@@ -8,7 +8,7 @@
     {% for poll in polls %}
         <p>
             {{ poll.question }}
-            <a href="{% url "index" %}">Пройти опрос</a>
+            <a href="{% url "answer" poll.pk %}">Пройти опрос</a>
             <a href="{% url "poll" poll.pk %}">Просмотр опроса</a>
         </p>
     {% endfor %}

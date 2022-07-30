@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.forms import widgets
 
 from webapp.models import Poll, Choice
 
@@ -26,3 +27,12 @@ class ChoiceForm(forms.ModelForm):
         if len(text) > 50:
             raise ValidationError('Вариант ответа не должен превышать 50 символов!')
         return text
+
+
+class AnswerForm(forms.ModelForm):
+    class Meta:
+        model = Poll
+        fields = ['choices']
+        widgets = {
+            'choices': widgets.CheckboxInput
+        }
