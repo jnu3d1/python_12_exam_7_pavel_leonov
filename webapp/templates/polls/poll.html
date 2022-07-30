@@ -12,7 +12,7 @@
         <p>Вариантов ответов нет</p>
     {% endfor %}
     <p>
-        <a href="{% url "index" %}">Редактировать опрос</a>
+        <a href="{% url "edit_poll" poll.pk %}">Редактировать опрос</a>
     </p>
     <p>
         <a href="{% url "index" %}">Удалить опрос</a>

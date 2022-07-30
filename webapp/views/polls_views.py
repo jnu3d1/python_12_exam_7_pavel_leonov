@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from webapp.forms import PollForm
 from webapp.models import Poll
@@ -29,6 +29,15 @@ class PollView(DetailView):
 class CreatePoll(CreateView):
     form_class = PollForm
     template_name = 'polls/create.html'
+
+    def get_success_url(self):
+        return reverse('poll', kwargs={'pk': self.object.pk})
+
+
+class UpdatePoll(UpdateView):
+    form_class = PollForm
+    model = Poll
+    template_name = 'polls/edit.html'
 
     def get_success_url(self):
         return reverse('poll', kwargs={'pk': self.object.pk})
