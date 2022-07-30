@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Опрос {{ poll.pk }}{% endblock %}
+
+{% block content %}
+    <h3>{{ poll.question }}</h3>
+    {% for choice in choises %}
+        <p>
+            {{ choice.text }}
+        </p>
+    {% empty %}
+        <p>Вариантов ответов нет</p>
+    {% endfor %}
+    <p>
+        <a href="{% url "index" %}">Редактировать опрос</a>
+    </p>
+    <p>
+        <a href="{% url "index" %}">Удалить опрос</a>
+    </p>
+    <p>
+        <a style="color: red;" href="{% url "index" %}"><b>На главную</b></a>
+    </p>
+{% endblock %}

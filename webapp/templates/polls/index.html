@@ -5,7 +5,11 @@
 {% block content %}
     <h1>Список опросов</h1>
     {% for poll in polls %}
-        <p>{{ poll.question }} <a href="{% url "index" %}">Пройти опрос</a></p>
+        <p>
+            {{ poll.question }}
+            <a href="{% url "index" %}">Пройти опрос</a>
+            <a href="{% url "poll" poll.pk %}">Просмотр опроса</a>
+        </p>
     {% endfor %}
     {% if is_paginated %}
         {% include 'partial/pagination.html' %}
