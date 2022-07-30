@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Список опросов{% endblock %}
+
+{% block content %}
+    <h1>Список опросов</h1>
+    {% for poll in polls %}
+        <p>{{ poll.question }} <a href="{% url "index" %}">Пройти опрос</a></p>
+    {% endfor %}
+{% endblock %}
