@@ -4,6 +4,7 @@
 
 {% block content %}
     <h1>Список опросов</h1>
+    <p><a href="{% url "create_poll" %}">Новый опрос</a></p>
     {% for poll in polls %}
         <p>
             {{ poll.question }}
