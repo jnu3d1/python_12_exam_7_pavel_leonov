@@ -15,7 +15,7 @@
         <a href="{% url "edit_poll" poll.pk %}">Редактировать опрос</a>
     </p>
     <p>
-        <a href="{% url "index" %}">Удалить опрос</a>
+        <a href="{% url "delete_poll" poll.pk %}">Удалить опрос</a>
     </p>
     <p>
         <a style="color: red;" href="{% url "index" %}"><b>На главную</b></a>
