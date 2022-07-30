@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from webapp.models import Poll
+from webapp.models import Poll, Choice
 
 
 class PollForm(forms.ModelForm):
@@ -14,3 +14,15 @@ class PollForm(forms.ModelForm):
         if len(question) > 50:
             raise ValidationError('Вопрос не должен превышать 50 символов!')
         return question
+
+
+class ChoiceForm(forms.ModelForm):
+    class Meta:
+        model = Choice
+        fields = ['text']
+
+    def clean_text(self):
+        text = self.cleaned_data.get('text')
+        if len(text) > 50:
+            raise ValidationError('Вариант ответа не должен превышать 50 символов!')
+        return text

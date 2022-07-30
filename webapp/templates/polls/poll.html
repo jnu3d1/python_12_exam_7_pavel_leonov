@@ -12,6 +12,9 @@
         <p>Вариантов ответов нет</p>
     {% endfor %}
     <p>
+        <a href="{% url "create_choice" poll.pk %}">Добавить вариант ответа</a>
+    </p>
+    <p>
         <a href="{% url "edit_poll" poll.pk %}">Редактировать опрос</a>
     </p>
     <p>
